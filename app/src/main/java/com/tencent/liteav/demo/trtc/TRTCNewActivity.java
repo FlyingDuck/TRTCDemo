@@ -55,15 +55,15 @@ public class TRTCNewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_activity);
 
-        final EditText etRoomId = (EditText)findViewById(R.id.et_room_name);
-        final EditText etUserId = (EditText)findViewById(R.id.et_user_name);
+//        final EditText etRoomId = (EditText)findViewById(R.id.et_room_name);
+//        final EditText etUserId = (EditText)findViewById(R.id.et_user_name);
 
-        loadUserInfo(etRoomId, etUserId);
+//        loadUserInfo(etRoomId, etUserId);
 
         RadioButton rbCamera = (RadioButton) findViewById(R.id.rb_camera);
         rbCamera.setChecked(true);
 
-        TextView title = (TextView) findViewById(R.id.main_title);
+        /*TextView title = (TextView) findViewById(R.id.main_title);
         title.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -79,28 +79,27 @@ public class TRTCNewActivity extends Activity {
                 }
                 return false;
             }
-        });
+        });*/
 
-        TextView tvEnterRoom = (TextView)findViewById(R.id.tv_enter);
+        /*TextView tvEnterRoom = (TextView)findViewById(R.id.tv_enter);
         tvEnterRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (((RadioButton)findViewById(R.id.rb_video_file)).isChecked()) {
                     Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                     intent.setType("video/*");
-//                    intent.addCategory(Intent.CATEGORY_OPENABLE);
                     startActivityForResult(intent, 1);
                     return;
                 }
                 startJoinRoom();
             }
-        });
+        });*/
 
         // 如果配置有config文件，则从config文件中选择userId
         mUserInfoLoader = new TRTCGetUserIDAndUserSig(this);
         final ArrayList<String> userIds = mUserInfoLoader.getUserIdFromConfig();
         if (userIds != null && userIds.size() > 0) {
-            TRTCUserSelectDialog dialog = new TRTCUserSelectDialog(getContext(), mUserInfoLoader.getUserIdFromConfig());
+            /*TRTCUserSelectDialog dialog = new TRTCUserSelectDialog(getContext(), mUserInfoLoader.getUserIdFromConfig());
             dialog.setTitle("请选择登录的用户:");
             dialog.setCanceledOnTouchOutside(false);
             dialog.setOnItemClickListener(new TRTCUserSelectDialog.onItemClickListener() {
@@ -111,11 +110,88 @@ public class TRTCNewActivity extends Activity {
                     etUserId.setEnabled(false);
                 }
             });
-            dialog.show();
+            dialog.show();*/
         }
         else {
             showAlertDialog();
         }
+
+        findViewById(R.id.tv_enter_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(1991, "Web_trtc_01");
+            }
+        });
+
+        findViewById(R.id.tv_enter_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(1992, "Web_trtc_01");
+            }
+        });
+
+        findViewById(R.id.tv_enter_3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(1993, "Web_trtc_01");
+            }
+        });
+
+        findViewById(R.id.tv_enter_4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(1994, "Web_trtc_01");
+            }
+        });
+
+        findViewById(R.id.tv_enter_5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(1995, "Web_trtc_01");
+            }
+        });
+
+        findViewById(R.id.tv_enter_6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(1996, "Web_trtc_01");
+            }
+        });
+
+        findViewById(R.id.tv_enter_7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(1997, "Web_trtc_01");
+            }
+        });
+
+        findViewById(R.id.tv_enter_8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(1998, "Web_trtc_01");
+            }
+        });
+
+        findViewById(R.id.tv_enter_9).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(1999, "Web_trtc_01");
+            }
+        });
+
+        findViewById(R.id.tv_enter_10).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(2000, "Web_trtc_01");
+            }
+        });
+
+        findViewById(R.id.tv_enter_11).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startJoinRoomV2(2001, "Web_trtc_01");
+            }
+        });
 
         // 申请动态权限
         checkPermission();
@@ -199,7 +275,7 @@ public class TRTCNewActivity extends Activity {
         }
     }
 
-    private void startJoinRoom() {
+    /*private void startJoinRoom() {
         final EditText etRoomId = (EditText)findViewById(R.id.et_room_name);
         final EditText etUserId = (EditText)findViewById(R.id.et_user_name);
         int roomId = 123;
@@ -215,6 +291,10 @@ public class TRTCNewActivity extends Activity {
             return;
         }
 
+        onJoinRoom(roomId, userId);
+    }*/
+
+    private void startJoinRoomV2(int roomId, String userId) {
         onJoinRoom(roomId, userId);
     }
 
@@ -233,7 +313,7 @@ public class TRTCNewActivity extends Activity {
             }
         }
 
-        startJoinRoom();
+//        startJoinRoom();
     }
 
     private Context getContext(){
